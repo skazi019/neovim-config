@@ -74,7 +74,7 @@ return packer.startup(function(use)
         "folke/which-key.nvim",
         config = function()
             vim.o.timeout = true
-            vim.o.timeoutlen = 150
+            vim.o.timeoutlen = 500
         end
     }
 
@@ -93,6 +93,9 @@ return packer.startup(function(use)
     -- Colorschemes
     use { "rose-pine/neovim", as = "rose-pine", commit = "19055dfe90bfa46a1e5b0a706d13980bdffa2dee"}
     use { "folke/tokyonight.nvim", commit = "9bf9ec53d5e87b025e2404069b71e7ebdc3a13e5" }
+    use { "sonph/onehalf", commit = "75eb2e97acd74660779fed8380989ee7891eec56", rtp = "vim" }
+    use { "olimorris/onedarkpro.nvim", priority = 1000 }
+
 
     -- Buffer - for listing open files and easier navigating between buffers
     use {"akinsho/bufferline.nvim", commit = "64e2c5def50dfd6b6f14d96a45fa3d815a4a1eef", requires = "nvim-tree/nvim-web-devicons" }
@@ -115,6 +118,9 @@ return packer.startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+
+    -- LSP - Language server protocol for formatting and linitng files
+    use { "williamboman/mason.nvim", commit = "751b1fcbf3d3b783fcf8d48865264a9bcd8f9b10" }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
