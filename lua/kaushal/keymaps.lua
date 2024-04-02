@@ -69,6 +69,9 @@ keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(v
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
+-- Undotree
+keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
+
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 

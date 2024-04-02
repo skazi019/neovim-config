@@ -119,8 +119,24 @@ return packer.startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
+    -- Undo tree
+    use { "mbbill/undotree", commit = "aa93a7e5890dbbebbc064cd22260721a6db1a196" }
+
     -- LSP - Language server protocol for formatting and linitng files
-    use { "williamboman/mason.nvim", commit = "751b1fcbf3d3b783fcf8d48865264a9bcd8f9b10" }
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
+        requires = {
+            --- Uncomment the two plugins below if you want to manage the language servers from neovim
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
+
+            {'neovim/nvim-lspconfig'},
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'L3MON4D3/LuaSnip'},
+        }
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
