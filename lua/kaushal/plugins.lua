@@ -138,6 +138,16 @@ return packer.startup(function(use)
         }
     }
 
+    -- Noice - for floating vim command line
+    use {
+        "folke/noice.nvim",
+        commit = "0cbe3f88d038320bdbda3c4c5c95f43a13c3aa12",
+        requires = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+        }
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
