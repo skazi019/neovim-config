@@ -46,10 +46,16 @@ return packer.startup(function(use)
     -- Packer - plugin manager for nvim
     use { "wbthomason/packer.nvim", commit = "ea0cc3c59f67c440c5ff0bbe4fb9420f4350b9a3" } -- Have packer manage itself
 
-    use { "nvim-lua/plenary.nvim", commit = "8aad4396840be7fc42896e3011751b7609ca4119" } -- Useful lua functions used by lots of plugins
+    use { "nvim-lua/plenary.nvim", commit = "8aad4396840be7fc42896e3011751b7609ca4119" }  -- Useful lua functions used by lots of plugins
 
     -- Autopairs - for automatic brackets closing
-    -- use { "windwp/nvim-autopairs", commit = "dbfc1c34bed415906395db8303c71039b3a3ffb4" } -- Autopairs, integrates with both cmp and treesitter
+    use {
+        "windwp/nvim-autopairs",
+        commit = "4f41e5940bc0443fdbe5f995e2a596847215cd2a", event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup {}
+        end
+    } -- Autopairs, integrates with both cmp and treesitter
 
     -- Comment - for commenting using Space+/
     use { "numToStr/Comment.nvim", commit = "0236521ea582747b58869cb72f70ccfa967d2e89" }
@@ -66,7 +72,7 @@ return packer.startup(function(use)
     -- Telescope - for find in files, project, etc
     use {
         'nvim-telescope/telescope.nvim', commit = "c2b8311dfacd08b3056b8f0249025d633a4e71a8",
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
     -- Which-key - for showing the keymaps when leader is pressed
@@ -91,14 +97,15 @@ return packer.startup(function(use)
     use { "akinsho/toggleterm.nvim", commit = "193786e0371e3286d3bc9aa0079da1cd41beaa62" }
 
     -- Colorschemes
-    use { "rose-pine/neovim", as = "rose-pine", commit = "19055dfe90bfa46a1e5b0a706d13980bdffa2dee"}
+    use { "rose-pine/neovim", as = "rose-pine", commit = "19055dfe90bfa46a1e5b0a706d13980bdffa2dee" }
     use { "folke/tokyonight.nvim", commit = "9bf9ec53d5e87b025e2404069b71e7ebdc3a13e5" }
     use { "sonph/onehalf", commit = "75eb2e97acd74660779fed8380989ee7891eec56", rtp = "vim" }
     use { "olimorris/onedarkpro.nvim", priority = 1000 }
 
 
     -- Buffer - for listing open files and easier navigating between buffers
-    use {"akinsho/bufferline.nvim", commit = "64e2c5def50dfd6b6f14d96a45fa3d815a4a1eef", requires = "nvim-tree/nvim-web-devicons" }
+    use { "akinsho/bufferline.nvim", commit = "64e2c5def50dfd6b6f14d96a45fa3d815a4a1eef", requires =
+    "nvim-tree/nvim-web-devicons" }
 
     -- Barbecue - Highlighting contents of if/else|for|funtions|etc. using a bar |
     use({
@@ -128,13 +135,13 @@ return packer.startup(function(use)
         branch = 'v3.x',
         requires = {
             --- Uncomment the two plugins below if you want to manage the language servers from neovim
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
 
-            {'neovim/nvim-lspconfig'},
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'},
+            { 'neovim/nvim-lspconfig' },
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
         }
     }
 

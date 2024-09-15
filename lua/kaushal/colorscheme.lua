@@ -1,4 +1,4 @@
-local colorscheme = "rose-pine-moon"
+local colorscheme = "tokyonight-night"
 
 local function has_value (list, val)
     for index, value in ipairs(list) do
